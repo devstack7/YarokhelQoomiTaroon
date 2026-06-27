@@ -1,0 +1,179 @@
+.leadership {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 120px 20px;
+  position: relative;
+}
+
+.leadership::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(44, 95, 45, 0.05), transparent);
+  pointer-events: none;
+}
+
+.leadership-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leadership h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.leadership-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.leader-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.leader-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(44, 95, 45, 0.1), rgba(255, 215, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.leader-card:hover::before {
+  opacity: 1;
+}
+
+.leader-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(44, 95, 45, 0.3);
+}
+
+.leader-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.leader-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover .leader-image {
+  transform: scale(1.1);
+}
+
+.leader-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(44, 95, 45, 0.9), transparent);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover .leader-overlay {
+  transform: translateY(0);
+}
+
+.leader-quote {
+  color: white;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+.leader-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.leader-info h3 {
+  color: #2c5f2d;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.leader-position {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #2c5f2d 0%, #3d7c3e 100%);
+  padding: 8px 20px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.leader-description {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.council-info {
+  background: linear-gradient(135deg, #2c5f2d 0%, #3d7c3e 100%);
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.council-info h3 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.council-info p {
+  font-size: 1.2rem;
+  line-height: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .leadership {
+    padding: 60px 15px;
+  }
+
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .council-info {
+    padding: 30px 20px;
+  }
+
+  .leader-image-wrapper {
+    height: 250px;
+  }
+}
