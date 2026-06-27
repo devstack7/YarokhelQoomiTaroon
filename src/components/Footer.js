@@ -37,10 +37,10 @@ function Footer() {
           <div className="footer-section">
             <h3>سوشل میڈیا</h3>
             <div className="social-links">
-              <a href="#" className="social-icon">📘</a>
-              <a href="#" className="social-icon">📷</a>
-              <a href="#" className="social-icon">🐦</a>
-              <a href="#" className="social-icon">📺</a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">📘</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">📷</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">🐦</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">📺</a>
             </div>
           </div>
         </div>
