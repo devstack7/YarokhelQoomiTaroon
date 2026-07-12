@@ -1,0 +1,167 @@
+.funds-login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a4d2e 0%, #2c5f2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+}
+
+.login-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  color: #1a4d2e;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 1.3rem;
+}
+
+.login-form {
+  margin-bottom: 30px;
+}
+
+.error-alert {
+  background: #fee;
+  border: 2px solid #fcc;
+  color: #c33;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1a4d2e;
+  box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.1);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #1a4d2e, #2c5f2d);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-footer a {
+  color: #1a4d2e;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.login-footer a:hover {
+  color: #2c5f2d;
+  text-decoration: underline;
+}
+
+.login-info {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #e0e0e0;
+}
+
+.login-info h3 {
+  color: #1a4d2e;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.login-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-info li {
+  padding: 10px 0;
+  font-size: 1.1rem;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.login-info li:last-child {
+  border-bottom: none;
+}
+
+.login-info li strong {
+  color: #1a4d2e;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 25px;
+  }
+
+  .login-header h1 {
+    font-size: 2rem;
+  }
+
+  .login-header p {
+    font-size: 1.1rem;
+  }
+}

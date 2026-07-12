@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../config/supabase';
 import './Contact.css';
 
 function Contact() {
@@ -8,11 +9,54 @@ function Contact() {
     phone: '',
     message: ''
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('شکریہ! آپ کا پیغام موصول ہو گیا ہے۔ ہم جلد آپ سے رابطہ کریں گے۔');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      console.log('Submitting contact form:', formData);
+
+      // Insert into database
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || null,
+            message: formData.message,
+            status: 'unread'
+          }
+        ])
+        .select();
+
+      if (error) {
+        console.error('Database error:', error);
+        throw error;
+      }
+
+      console.log('Contact form submitted successfully:', data);
+      
+      // Show success message
+      setSubmitStatus('success');
+      alert('✅ شکریہ! آپ کا پیغام موصول ہو گیا ہے۔ ہم جلد آپ سے رابطہ کریں گے۔');
+      
+      // Clear form
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+      alert('❌ خرابی: پیغام بھیجنے میں مسئلہ ہوا۔ براہ کرم دوبارہ کوشش کریں۔');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -35,29 +79,39 @@ function Contact() {
             <div className="info-card">
               <div className="info-icon">📍</div>
               <h3>پتہ</h3>
-              <p>ضلع تورغر، مانسہرہ</p>
-              <p>خیبر پختونخوا، پاکستان</p>
+              <p>پاکستان</p>
             </div>
 
             <div className="info-card">
               <div className="info-icon">📞</div>
               <h3>فون</h3>
-              <p dir="ltr">+92-XXX-XXXXXXX</p>
+              <p dir="ltr">+92-xxx-xxxxxxx</p>
               <p>ہفتے کے تمام دن دستیاب</p>
             </div>
 
             <div className="info-card">
               <div className="info-icon">✉️</div>
               <h3>ای میل</h3>
-              <p dir="ltr">info@yarukhelqoomi.org</p>
+              <p dir="ltr">yqt.official@gmail.com</p>
               <p>24 گھنٹے کے اندر جواب</p>
             </div>
           </div>
 
           <div className="contact-form-wrapper">
+            {submitStatus === 'success' && (
+              <div className="alert alert-success">
+                ✅ آپ کا پیغام کامیابی سے بھیج دیا گیا ہے!
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="alert alert-error">
+                ❌ پیغام بھیجنے میں مسئلہ ہوا۔ براہ کرم دوبارہ کوشش کریں۔
+              </div>
+            )}
+            
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>نام</label>
+                <label>نام *</label>
                 <input
                   type="text"
                   name="name"
@@ -65,11 +119,12 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="اپنا نام درج کریں"
+                  disabled={submitting}
                 />
               </div>
 
               <div className="form-group">
-                <label>ای میل</label>
+                <label>ای میل *</label>
                 <input
                   type="email"
                   name="email"
@@ -78,6 +133,7 @@ function Contact() {
                   required
                   placeholder="your@email.com"
                   dir="ltr"
+                  disabled={submitting}
                 />
               </div>
 
@@ -90,11 +146,12 @@ function Contact() {
                   onChange={handleChange}
                   placeholder="+92-XXX-XXXXXXX"
                   dir="ltr"
+                  disabled={submitting}
                 />
               </div>
 
               <div className="form-group">
-                <label>پیغام</label>
+                <label>پیغام *</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -102,11 +159,12 @@ function Contact() {
                   required
                   rows="5"
                   placeholder="اپنا پیغام یہاں لکھیں"
+                  disabled={submitting}
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-btn">
-                پیغام بھیجیں
+              <button type="submit" className="submit-btn" disabled={submitting}>
+                {submitting ? 'بھیج رہے ہیں...' : 'پیغام بھیجیں'}
               </button>
             </form>
           </div>

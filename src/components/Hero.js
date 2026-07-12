@@ -44,9 +44,10 @@ function Hero() {
           ایک مضبوط اور متحد قوم کی تعمیر کے لیے
         </p>
         <div className="hero-location">
-          <p>📍 ضلع تورغر، مانسہرہ، خیبر پختونخوا</p>
+          <p>📍 پاکستان</p>
         </div>
         <div className="hero-buttons">
+          <a href="/heritage" className="btn btn-heritage">یارُوخیل کے بارے میں مزید پڑھیں</a>
           <a href="#about" className="btn btn-primary">مزید جانیے</a>
           <a href="#contact" className="btn btn-secondary">رابطہ کریں</a>
         </div>

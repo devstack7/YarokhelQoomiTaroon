@@ -8,6 +8,9 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+  margin-bottom: 0;
+  isolation: isolate;
+  clear: both;
 }
 
 .hero-slider {
@@ -215,6 +218,24 @@
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
+.btn-heritage {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  animation: heroButtonPulse 2s infinite;
+}
+
+.btn-heritage:hover {
+  background: linear-gradient(135deg, #ee5a6f 0%, #ff6b6b 100%);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.5);
+  animation: none;
+}
+
+@keyframes heroButtonPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .btn-primary {
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   color: #1a4d2e;
@@ -241,12 +262,13 @@
 
 .hero-indicators {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 3;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .indicator {
@@ -256,12 +278,16 @@
   background: rgba(255,255,255,0.5);
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .indicator.active {
   background: #ffd700;
   width: 30px;
   border-radius: 6px;
+  border-color: #ffd700;
+  box-shadow: 0 4px 15px rgba(255,215,0,0.6);
 }
 
 @media (max-width: 768px) {
@@ -296,5 +322,21 @@
   .btn {
     padding: 15px 35px;
     font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero-indicators {
+    bottom: 50px;
+    z-index: 100;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  .indicator.active {
+    width: 25px;
   }
 }

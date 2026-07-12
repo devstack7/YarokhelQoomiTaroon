@@ -18,7 +18,7 @@ function Navbar() {
       <div className="nav-container">
         <div className="nav-logo">
           <h1>یارُوخیل قومی تڑون</h1>
-          <p className="nav-subtitle">ضلع تورغر، مانسہرہ</p>
+          <p className="nav-subtitle">پاکستان</p>
         </div>
         
         <button 

@@ -15,6 +15,41 @@
   pointer-events: none;
 }
 
+.loading-message,
+.error-message,
+.empty-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.loading-message p,
+.error-message p,
+.empty-message p {
+  font-size: 1.4rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.admin-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background: #2c5f2d;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.admin-link:hover {
+  background: #1a4d2e;
+  transform: translateY(-3px);
+}
+
 .leadership-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -176,4 +211,37 @@
   .leader-image-wrapper {
     height: 250px;
   }
+}
+
+
+/* Shura Button Styling */
+.shura-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #1a4d2e, #2c5f2d);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+
+.shura-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #2c5f2d, #1a4d2e);
+}
+
+.shura-btn .arrow {
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.shura-btn:hover .arrow {
+  transform: translateX(-5px);
 }

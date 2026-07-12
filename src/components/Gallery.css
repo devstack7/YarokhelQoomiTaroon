@@ -29,6 +29,52 @@
   font-size: 1.2rem;
 }
 
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.category-filters .filter-btn {
+  padding: 12px 30px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-filters .filter-btn:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2c5f2d;
+}
+
+.category-filters .filter-btn.active {
+  background: #2c5f2d;
+  border-color: #2c5f2d;
+  color: white;
+}
+
+.empty-gallery {
+  text-align: center;
+  padding: 80px 20px;
+  color: #999;
+  font-size: 1.3rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #2c5f2d;
+  font-size: 1.5rem;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -77,6 +123,41 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+}
+
+.gallery-item.video .video-thumbnail {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-item.video iframe {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gallery-item.video .video-thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item.video:hover .video-thumb-image {
+  transform: scale(1.1);
+}
+
+.video-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  z-index: 3;
 }
 
 .gallery-item:hover img {
@@ -141,6 +222,30 @@
   margin-bottom: 20px;
 }
 
+.video-player {
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  margin-bottom: 20px;
+}
+
+.video-player iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.lightbox-content .category {
+  color: #2c5f2d;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.lightbox-content .description {
+  color: #666;
+  line-height: 1.8;
+}
+
 .close-btn {
   position: absolute;
   top: 10px;
@@ -185,7 +290,20 @@
     height: 250px;
   }
 
+  .category-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-filters .filter-btn {
+    width: 100%;
+  }
+
   .lightbox-content {
     padding: 20px;
+  }
+
+  .video-player {
+    height: 300px;
   }
 }

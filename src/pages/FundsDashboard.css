@@ -1,0 +1,651 @@
+.funds-dashboard {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 20px;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+}
+
+.dashboard-header {
+  background: linear-gradient(135deg, #1a4d2e, #2c5f2d);
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.header-left h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.header-left p {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.header-right {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-home, .btn-logout {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.btn-home {
+  background: white;
+  color: #2c5f2d;
+  text-decoration: none;
+}
+
+.btn-logout {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-home:hover, .btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.income-card .card-icon {
+  background: #e8f5e9;
+}
+
+.expense-card .card-icon {
+  background: #ffebee;
+}
+
+.balance-card .card-icon {
+  background: #e3f2fd;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-content .amount {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.income-card .amount {
+  color: #2e7d32;
+}
+
+.expense-card .amount {
+  color: #c62828;
+}
+
+.balance-card .amount {
+  color: #1565c0;
+}
+
+/* Dashboard Controls */
+.dashboard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-persons {
+  padding: 12px 25px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.btn-persons:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-categories {
+  padding: 12px 25px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.btn-categories:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  color: #666;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.filter-btn:hover {
+  border-color: #2c5f2d;
+  color: #2c5f2d;
+}
+
+.filter-btn.active {
+  background: #2c5f2d;
+  color: white;
+  border-color: #2c5f2d;
+}
+
+.btn-add {
+  padding: 12px 30px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.btn-add:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* Transactions Section */
+.transactions-section {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.transactions-section h2 {
+  color: #2c5f2d;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th {
+  background: #2c5f2d;
+  color: white;
+  padding: 15px;
+  text-align: right;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.transactions-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.transactions-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.type-badge.income {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.type-badge.expense {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.amount-cell {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.income-amount {
+  color: #2e7d32;
+}
+
+.expense-amount {
+  color: #c62828;
+}
+
+.description-cell {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-edit {
+  background: #ffc107;
+}
+
+.btn-delete {
+  background: #dc3545;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  transform: scale(1.1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state p {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  color: #2c5f2d;
+  font-size: 1.8rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.btn-close:hover {
+  color: #dc3545;
+  transform: rotate(90deg);
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.transaction-form input,
+.transaction-form select,
+.transaction-form textarea {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  background: white;
+  color: #333;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus,
+.transaction-form textarea:focus {
+  outline: none;
+  border-color: #2c5f2d;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn-cancel, .btn-save {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.btn-cancel {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-save {
+  background: #28a745;
+  color: white;
+}
+
+.btn-cancel:hover, .btn-save:hover {
+  transform: translateY(-2px);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  color: #2c5f2d;
+}
+
+.person-select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  background: white;
+  color: #333;
+  min-height: 50px;
+}
+
+.person-select:focus {
+  outline: none;
+  border-color: #2c5f2d;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .dashboard-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .transactions-table {
+    min-width: 800px;
+  }
+}
+
+
+/* Category-specific Cards */
+.genealogy-card {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+}
+
+.event-card {
+  background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+  color: white;
+}
+
+.total-card {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a4d2e;
+}
+
+.genealogy-card .card-icon,
+.event-card .card-icon,
+.total-card .card-icon {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.summary-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.summary-card .amount-detail {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  opacity: 0.95;
+}
+
+.summary-card .amount.balance {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-card .amount.balance {
+  border-top-color: rgba(26, 77, 46, 0.3);
+}
+
+/* Category Badges */
+.category-badge {
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.category-badge.genealogy_group {
+  background: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+  border: 2px solid #4caf50;
+}
+
+.category-badge.event {
+  background: rgba(156, 39, 176, 0.15);
+  color: #7b1fa2;
+  border: 2px solid #9c27b0;
+}
+
+/* Filter Section Enhancement */
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  min-width: 60px;
+}
+
+/* Mobile Responsive for Categories */
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-section {
+    gap: 10px;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-group label {
+    margin-bottom: 5px;
+  }
+  
+  .category-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}

@@ -11,7 +11,7 @@ function Footer() {
           <div className="footer-section">
             <h3>یارُوخیل قومی تڑون</h3>
             <p>
-              ضلع تورغر، مانسہرہ کی قومی تنظیم جو قوم کے اتحاد، ترقی اور 
+              پاکستان کی قومی تنظیم جو قوم کے اتحاد، ترقی اور 
               فلاح و بہبود کے لیے کوشاں ہے۔
             </p>
           </div>
@@ -29,19 +29,34 @@ function Footer() {
 
           <div className="footer-section">
             <h3>رابطہ</h3>
-            <p>📍 ضلع تورغر، مانسہرہ</p>
-            <p dir="ltr">📞 +92-XXX-XXXXXXX</p>
-            <p dir="ltr">✉️ info@yarukhelqoomi.org</p>
+            <p>📍 پاکستان</p>
+            <p dir="ltr">📞 +92-xxx-xxxxxxx</p>
+            <p dir="ltr">✉️ yqt.official@gmail.com</p>
           </div>
 
           <div className="footer-section">
             <h3>سوشل میڈیا</h3>
             <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">📘</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">📷</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">🐦</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">📺</a>
+              <a 
+                href="https://www.facebook.com/YarokhelOfficialYE" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon facebook"
+                title="Facebook"
+              >
+                📘 Facebook
+              </a>
+              <a 
+                href="https://www.youtube.com/@YarokhelOfficial" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon youtube"
+                title="YouTube"
+              >
+                📺 YouTube
+              </a>
             </div>
+            <p className="social-note">ہمارے ساتھ جڑیں</p>
           </div>
         </div>
 

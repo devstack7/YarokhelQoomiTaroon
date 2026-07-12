@@ -53,26 +53,44 @@
 
 .social-links {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .social-icon {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
   text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.social-icon:hover {
-  background: #ffd700;
-  transform: translateY(-5px);
+.social-icon.facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+.social-icon.youtube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+.social-note {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
 }
 
 .footer-bottom {

@@ -90,6 +90,8 @@
   height: 200%;
   background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
   animation: rotate 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes rotate {
@@ -97,10 +99,47 @@
   to { transform: rotate(360deg); }
 }
 
+.alert {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+.alert-success {
+  background: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4caf50;
+  color: #e8f5e9;
+}
+
+.alert-error {
+  background: rgba(244, 67, 54, 0.2);
+  border: 2px solid #f44336;
+  color: #ffebee;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  position: relative;
+  z-index: 1;
 }
 
 .form-group {
@@ -152,10 +191,22 @@
   margin-top: 10px;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background: #ffed4e;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 @media (max-width: 968px) {
