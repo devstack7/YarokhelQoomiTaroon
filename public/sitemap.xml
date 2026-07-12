@@ -3,40 +3,40 @@
   
   <!-- Home Page -->
   <url>
-    <loc>https://yarukhelqoomi.com/</loc>
-    <lastmod>2024-12-20</lastmod>
+    <loc>https://yarokhel-qoomi-taroon.vercel.app/</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Heritage Page -->
   <url>
-    <loc>https://yarukhelqoomi.com/heritage</loc>
-    <lastmod>2024-12-20</lastmod>
+    <loc>https://yarokhel-qoomi-taroon.vercel.app/heritage</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Shura Members Page -->
   <url>
-    <loc>https://yarukhelqoomi.com/shura-members</loc>
-    <lastmod>2024-12-20</lastmod>
+    <loc>https://yarokhel-qoomi-taroon.vercel.app/shura-members</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Funds Login Page -->
   <url>
-    <loc>https://yarukhelqoomi.com/funds/login</loc>
-    <lastmod>2024-12-20</lastmod>
+    <loc>https://yarokhel-qoomi-taroon.vercel.app/funds/login</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Admin Login Page -->
   <url>
-    <loc>https://yarukhelqoomi.com/yqt-admin/login</loc>
-    <lastmod>2024-12-20</lastmod>
+    <loc>https://yarokhel-qoomi-taroon.vercel.app/yqt-admin/login</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

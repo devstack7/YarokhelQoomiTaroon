@@ -14,4 +14,4 @@ Disallow: /funds/dashboard
 Disallow: /funds/view
 
 # Sitemap location
-Sitemap: https://yarukhelqoomi.com/sitemap.xml
+Sitemap: https://yarokhel-qoomi-taroon.vercel.app/sitemap.xml
