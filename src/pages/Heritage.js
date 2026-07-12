@@ -217,7 +217,7 @@ function Heritage() {
                 <h3>یارُوخیل</h3>
                 <p>Yaru Khel</p>
               </div>
-              <div className="node-badge highlight">ہماری شناخت</div>
+              <div className="node-badge highlight">حسن زئی کی شاخ</div>
             </div>
           </div>
         </div>
