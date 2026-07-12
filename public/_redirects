@@ -1,0 +1,6 @@
+# Serve static files at root level
+/sitemap.xml /sitemap.xml 200
+/robots.txt /robots.txt 200
+
+# Fallback to index.html for all other routes (SPA)
+/* /index.html 200
