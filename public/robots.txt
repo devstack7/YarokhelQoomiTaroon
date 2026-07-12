@@ -1,0 +1,17 @@
+# Robots.txt for یارُوخیل قومی تڑون
+# Allow all search engines to crawl
+
+User-agent: *
+Allow: /
+
+# Allow crawling of main pages
+Allow: /heritage
+Allow: /shura-members
+
+# Disallow admin and private areas
+Disallow: /yqt-admin/
+Disallow: /funds/dashboard
+Disallow: /funds/view
+
+# Sitemap location
+Sitemap: https://yarukhelqoomi.com/sitemap.xml
