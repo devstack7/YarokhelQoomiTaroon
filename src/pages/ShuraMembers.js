@@ -108,12 +108,12 @@ function ShuraMembers() {
         </div>
 
         <div className="members-grid">
-          {members.map((member) => (
+          {members.map((member, index) => (
             <div key={member.id} className="member-card">
               <div className="member-image-wrapper">
                 <img src={member.image_url} alt={member.name} className="member-image" />
                 <div className="member-badge">
-                  <span>رکن شوریٰ</span>
+                  <span>{index === 0 ? 'صدر مجلس شوریٰ' : 'رکن شوریٰ'}</span>
                 </div>
               </div>
               <div className="member-info">
