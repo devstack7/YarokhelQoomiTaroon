@@ -389,7 +389,7 @@ function FundsDashboard() {
         </div>
       </div>
 
-      {/* Transactions Table */}
+      {/* Transactions Section */}
       <div className="transactions-section">
         <h2>لین دین کی تفصیل ({filteredTransactions.length})</h2>
         
@@ -399,60 +399,72 @@ function FundsDashboard() {
             <button onClick={openAddModal} className="btn-add">پہلا ریکارڈ شامل کریں</button>
           </div>
         ) : (
-          <div className="table-wrapper">
-            <table className="transactions-table">
-              <thead>
-                <tr>
-                  <th>قسم</th>
-                  <th>فنڈ کی قسم</th>
-                  <th>نام</th>
-                  <th>رقم</th>
-                  <th>تاریخ</th>
-                  <th>مقصد</th>
-                  <th>تفصیل</th>
-                  <th>ایکشن</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredTransactions.map((transaction) => (
-                  <tr key={transaction.id} className={transaction.type}>
-                    <td>
-                      <span className={`type-badge ${transaction.type}`}>
-                        {transaction.type === 'income' ? '📈 آمدن' : '📉 خرچہ'}
+          <div className="transactions-cards">
+            {filteredTransactions.map((transaction) => {
+              const category = categories.find(c => c.name === transaction.category);
+              return (
+                <div key={transaction.id} className={`transaction-card ${transaction.type}`}>
+                  <div className="card-header">
+                    <span className={`type-badge ${transaction.type}`}>
+                      {transaction.type === 'income' ? '📈 آمدن' : '📉 خرچہ'}
+                    </span>
+                    <span 
+                      className="category-badge" 
+                      style={{
+                        background: category?.color + '26' || '#e0e0e0',
+                        color: category?.color || '#666',
+                        border: `2px solid ${category?.color || '#999'}`
+                      }}
+                    >
+                      {category?.icon} {category?.name_urdu || transaction.category}
+                    </span>
+                  </div>
+
+                  <div className="card-body">
+                    <div className="card-row">
+                      <span className="label">نام:</span>
+                      <span className="value">
+                        {transaction.person?.name || transaction.name}
+                        {transaction.person && <small style={{display:'block',color:'#999',fontSize:'0.85em'}}>({transaction.name})</small>}
                       </span>
-                    </td>
-                    <td>
-                      <span 
-                        className="category-badge" 
-                        style={{
-                          background: categories.find(c => c.name === transaction.category)?.color + '26' || '#e0e0e0',
-                          color: categories.find(c => c.name === transaction.category)?.color || '#666',
-                          border: `2px solid ${categories.find(c => c.name === transaction.category)?.color || '#999'}`
-                        }}
-                      >
-                        {categories.find(c => c.name === transaction.category)?.icon} {categories.find(c => c.name === transaction.category)?.name_urdu || transaction.category}
-                      </span>
-                    </td>
-                    <td>
-                    {transaction.person?.name || transaction.name}
-                    {transaction.person && <small style={{display:'block',color:'#999'}}>({transaction.name})</small>}
-                  </td>
-                    <td className="amount-cell">
-                      <span className={transaction.type === 'income' ? 'income-amount' : 'expense-amount'}>
+                    </div>
+
+                    <div className="card-row amount-row">
+                      <span className="label">رقم:</span>
+                      <span className={`value ${transaction.type === 'income' ? 'income-amount' : 'expense-amount'}`}>
                         {transaction.type === 'income' ? '+' : '-'} Rs. {parseFloat(transaction.amount).toLocaleString()}
                       </span>
-                    </td>
-                    <td>{new Date(transaction.date).toLocaleDateString('ur-PK')}</td>
-                    <td>{transaction.purpose}</td>
-                    <td className="description-cell">{transaction.description || '-'}</td>
-                    <td className="action-buttons">
-                      <button onClick={() => handleEdit(transaction)} className="btn-edit">✏️</button>
-                      <button onClick={() => handleDelete(transaction.id)} className="btn-delete">🗑️</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </div>
+
+                    <div className="card-row">
+                      <span className="label">تاریخ:</span>
+                      <span className="value">{new Date(transaction.date).toLocaleDateString('ur-PK')}</span>
+                    </div>
+
+                    <div className="card-row">
+                      <span className="label">مقصد:</span>
+                      <span className="value">{transaction.purpose}</span>
+                    </div>
+
+                    {transaction.description && (
+                      <div className="card-row full-width">
+                        <span className="label">تفصیل:</span>
+                        <span className="value description">{transaction.description}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="card-actions">
+                    <button onClick={() => handleEdit(transaction)} className="btn-edit" title="ترمیم">
+                      ✏️ ترمیم
+                    </button>
+                    <button onClick={() => handleDelete(transaction.id)} className="btn-delete" title="حذف">
+                      🗑️ حذف
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

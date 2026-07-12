@@ -242,8 +242,134 @@
   margin-bottom: 20px;
 }
 
+/* Transactions Cards View */
+.transactions-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.transaction-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.transaction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.transaction-card.income {
+  border-left: 5px solid #2e7d32;
+}
+
+.transaction-card.expense {
+  border-left: 5px solid #c62828;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-row.full-width {
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-row .label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.95rem;
+  min-width: 60px;
+}
+
+.card-row .value {
+  color: #333;
+  font-size: 1rem;
+  text-align: left;
+  flex: 1;
+}
+
+.card-row .value.description {
+  color: #666;
+  line-height: 1.5;
+}
+
+.card-row.amount-row {
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.card-row.amount-row .value {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.card-actions .btn-edit,
+.card-actions .btn-delete {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 600;
+}
+
+.card-actions .btn-edit {
+  background: #ffc107;
+  color: #333;
+}
+
+.card-actions .btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.card-actions .btn-edit:hover,
+.card-actions .btn-delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Legacy table styles (hidden on mobile) */
 .table-wrapper {
   overflow-x: auto;
+  display: none;
 }
 
 .transactions-table {
@@ -515,6 +641,7 @@
 
   .filter-buttons {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .summary-cards {
@@ -525,12 +652,22 @@
     grid-template-columns: 1fr;
   }
 
-  .table-wrapper {
-    overflow-x: scroll;
+  /* Card view for mobile */
+  .transactions-cards {
+    grid-template-columns: 1fr;
   }
 
-  .transactions-table {
-    min-width: 800px;
+  .transaction-card {
+    width: 100%;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    flex-direction: column;
   }
 }
 
